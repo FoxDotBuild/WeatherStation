@@ -13,16 +13,18 @@ var encoding = 'utf8';
 // })
 function weather() {
   return new Promise(function (resolve, reject) {
+    var serialPort = new SerialPort(serialDevice, serialConf);
+
     function onReadable() { port.read() }
 
     function parseData(data) {
       try {
         resolve(JSON.parse(data.toString(encoding)));
+        serialPort.close()
       } catch (error) {
 
       }
     }
-    var serialPort = new SerialPort(serialDevice, serialConf);
 
     // Switches the port into "flowing mode"
     serialPort.on('data', parseData);
@@ -33,8 +35,3 @@ function weather() {
 }
 
 module.exports = weather;
-
-// weather().then(function (report) {
-//   console.log("Humidity: ", report[0]);
-//   console.log("Fake temperature: ", report[1]);
-// });

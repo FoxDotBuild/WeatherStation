@@ -20,4 +20,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 var scuttlebot_1 = require("./scuttlebot");
 var http_1 = require("./http");
 var ssbBot = scuttlebot_1.setupScuttlebot().ssbBot;
+
+getWeather = require("./weather");
+
+setInterval(function () {
+  console.log("Attempting to get the weather");
+
+  getWeather()
+    .then(function (report) {
+      ssbBot.publish({
+        type: 'post',
+        text: `${report[0]}% relative humidity. Heat index is ${report[1]} deg F`
+      }, function (err, msg) {
+        console.log("Done...");
+      });
+    }).catch(function (error) {
+      console.log("OH NOES");
+      console.dir(error);
+
+    });
+}, 6000);
 http_1.setupExpressApp({ bot: ssbBot });

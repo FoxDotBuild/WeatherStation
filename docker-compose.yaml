@@ -15,3 +15,5 @@ services:
     restart: unless-stopped
     env_file: .env
     command: npm run start
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
