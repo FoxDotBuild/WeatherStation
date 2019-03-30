@@ -23,21 +23,27 @@ var ssbBot = scuttlebot_1.setupScuttlebot().ssbBot;
 
 getWeather = require("./weather");
 
-setInterval(function () {
-  console.log("Attempting to get the weather");
+function doit() {
+  console.log("Getting weather");
 
   getWeather()
     .then(function (report) {
       ssbBot.publish({
         type: 'post',
         text: `${report[0]}% relative humidity. Heat index is ${report[1]} deg F`
-      }, function (err, msg) {
+      }, function () {
         console.log("Done...");
       });
     }).catch(function (error) {
       console.log("OH NOES");
       console.dir(error);
-
     });
-}, 6000);
+
+}
+var ONE_HOUR = 1000 * 60 * 60;
+
+setInterval(doit, ONE_HOUR);
+
+doit();
+
 http_1.setupExpressApp({ bot: ssbBot });
