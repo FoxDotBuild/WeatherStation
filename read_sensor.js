@@ -3,21 +3,38 @@ var SerialPort = require("serialport");
 var serialConf = { baudRate: 9600 };
 var serialDevice = "/dev/ttyUSB0";
 var encoding = 'utf8';
-var serialPort = new SerialPort(serialDevice, serialConf);
 
-function processData(tuple) { console.dir(tuple); }
-function onReadable() { port.read() }
+// Call this function to get a two element tuple of
+// [humidity, heatIndex] (fahrenheit)
+//
+// The API:
+//  weather().then(function(report) {
+//    console.log("Humidity is: ", report[0]);
+// })
+function weather() {
+  return new Promise(function (resolve, reject) {
+    function onReadable() { port.read() }
 
-function parseData(data) {
-  try {
-    processData(JSON.parse(data.toString(encoding)));
-  } catch (error) {
+    function parseData(data) {
+      try {
+        resolve(JSON.parse(data.toString(encoding)));
+      } catch (error) {
 
-  }
+      }
+    }
+    var serialPort = new SerialPort(serialDevice, serialConf);
+
+    // Switches the port into "flowing mode"
+    serialPort.on('data', parseData);
+
+    // Read data that is available but keep the stream from entering //"flowing mode"
+    serialPort.on('readable', onReadable);
+  });
 }
 
-// Switches the port into "flowing mode"
-serialPort.on('data', parseData);
+module.exports = weather;
 
-// Read data that is available but keep the stream from entering //"flowing mode"
-serialPort.on('readable', onReadable);
+// weather().then(function (report) {
+//   console.log("Humidity: ", report[0]);
+//   console.log("Fake temperature: ", report[1]);
+// });
