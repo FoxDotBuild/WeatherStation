@@ -18,7 +18,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 var scuttlebot_1 = require("./scuttlebot");
-var http_1 = require("./http");
 var ssbBot = scuttlebot_1.setupScuttlebot().ssbBot;
 
 getWeather = require("./weather");
@@ -46,4 +45,3 @@ setInterval(doit, ONE_HOUR);
 
 doit();
 
-http_1.setupExpressApp({ bot: ssbBot });

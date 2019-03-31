@@ -3,5 +3,5 @@
 /npm-debug.log
 /ignore
 /.DS_Store
-/docker_volumes
+/storage
 .env

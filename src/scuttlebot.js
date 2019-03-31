@@ -17,7 +17,6 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 var ssbClient = require("scuttlebot");
-var minimist = require("minimist");
 var ssbKeys = require("ssb-keys");
 var confInject = require("ssb-config/inject");
 var path = require("path");
@@ -28,12 +27,8 @@ var fs = require("fs");
  * @param {Options} opts
  */
 function setupScuttlebot() {
-    var argv = process.argv.slice(2);
-    var i = argv.indexOf('--');
-    var conf = argv.slice(i + 1);
-    argv = ~i ? argv.slice(0, i) : argv;
-    var ssbConf = confInject(process.env.ssb_appname, minimist(conf));
-    ssbConf.path = "./docker_volumes/ssb_data_stored_here"
+    var ssbConf = confInject("process.env.ssb_appname", {});
+    ssbConf.path = "./storage"
     ssbConf.keys = ssbKeys.loadOrCreateSync(path.join(ssbConf.path, 'secret'));
     ssbConf.port = config_1.SBOT_PORT;
     ssbConf.swarm = { port: 8007, maxPeers: 3 };
@@ -51,7 +46,6 @@ function setupScuttlebot() {
         .use(require('ssb-links'))
         .use(require('ssb-ws'))
         .use(require('ssb-ebt'))
-        //.use(require('ssb-discovery-swarm'))
         .use(require('ssb-autoname'));
     var ssbBot = createSbot(ssbConf);
     var manifestFile = path.join(ssbConf.path, 'manifest.json');
