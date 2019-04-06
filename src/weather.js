@@ -1,8 +1,8 @@
+var dhtSensorLib = require("node-dht-sensor");
+var heatIndexLib = require("heat-index");
 
-var SerialPort = require("serialport");
-var serialConf = { baudRate: 9600 };
-var serialDevice = "/dev/ttyUSB0";
-var encoding = 'utf8';
+const sensorType = 22;
+const sensorPin = 18;
 
 // Call this function to get a two element tuple of
 // [humidity, heatIndex] (fahrenheit)
@@ -13,24 +13,19 @@ var encoding = 'utf8';
 // })
 function weather() {
   return new Promise(function (resolve, reject) {
-    var serialPort = new SerialPort(serialDevice, serialConf);
+    function handleReading(err, temperature, humidity) {
+      if (err)
+        reject(err);
+      else
+      {
+        var heatIndex = heatIndexLib.heatIndex({temperature, humidity});
+        var heatIndexF = heatIndexLib.toFahrenheit(heatIndex);
 
-    function onReadable() { port.read() }
-
-    function parseData(data) {
-      try {
-        resolve(JSON.parse(data.toString(encoding)));
-        serialPort.close()
-      } catch (error) {
-
+        resolve([humidity, heatIndexF]);
       }
     }
 
-    // Switches the port into "flowing mode"
-    serialPort.on('data', parseData);
-
-    // Read data that is available but keep the stream from entering //"flowing mode"
-    serialPort.on('readable', onReadable);
+    dhtSensorLib.read(sensorType, sensorPin, handleReading);
   });
 }
 
