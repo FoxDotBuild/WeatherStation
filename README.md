@@ -3,7 +3,7 @@
 ## What's Here?
 
  * `dht2.ino` - Firmware for Arduino (uses DHT22 temp sensor).
-
+ * `src/index.js` - The Scuttlebutt related parts, as well as code that stores the temperature readings to local SSB log.
 ## How It Works
 
 ## README
