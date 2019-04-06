@@ -7,7 +7,7 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
 ## What's Here?
  * `dht2.ino` - Firmware for Arduino (uses DHT22 temp sensor).
 
-## What Boards + Sensors?
+## Hardware Used
 
  * Raspberry Pi Zero W
  * Tiny RTC DS1307
@@ -38,3 +38,7 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
  * Once Manyverse syncs with the weather station, go home.
  * Open Manyverse on your home WiFi, syncing with other peers.
  * Done! The weather report has now been "gossiped" to other peers on the network.
+
+## Attribution
+
+The code is a heavily gutted version of [easy-ssb-pub](https://github.com/staltz/easy-ssb-pub).

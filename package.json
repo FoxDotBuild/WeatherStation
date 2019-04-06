@@ -1,61 +1,37 @@
 {
-  "name": "easy-ssb-pub",
-  "version": "4.0.0",
-  "private": true,
-  "description": "Deploy a Secure Scuttlebutt Pub easily",
-  "author": "Andre Staltz",
-  "license": "AGPL-3.0",
-  "main": "src/index.js",
+  "name": "WeatherStation",
+  "version": "1.0.0",
+  "description": "This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/scuttlebutt-protocol-guide/) to store sensor readings. Sensor readings are propogated via [data mule](https://en.wikipedia.org/wiki/Data_mule) rather than by a data link.",
+  "main": "index.js",
   "dependencies": {
-    "asyncmemo": "^1.0.0",
-    "body-parser": "^1.16.0",
-    "debug": "^2.6.1",
-    "ejs": "^2.5.5",
-    "emoji-named-characters": "^1.0.2",
-    "emoji-server": "^1.0.0",
-    "express": "^4.14.0",
-    "heat-index": "0.0.3",
-    "human-time": "^0.0.1",
-    "lrucache": "^1.0.2",
-    "minimist": "^1.2.0",
-    "node-dht-sensor": "0.0.34",
-    "path": "^0.12.7",
-    "pull-cat": "^1.1.11",
-    "pull-paramap": "^1.2.2",
-    "pull-stream": "^3.5.1",
-    "qr-image": "^3.2.0",
-    "rxjs": "^5.2.0",
-    "scuttlebot": "11.1.x",
+    "debug": "^4.1.1",
+    "heat-index": "^0.0.3",
+    "scuttlebot": "^13.2.2",
     "serialport": "^7.1.4",
-    "ssb-autoname": "1.0.0",
-    "ssb-blobs": "1.1.0",
-    "ssb-client": "^4.4.1",
-    "ssb-config": "2.2.0",
-    "ssb-discovery-swarm": "1.0.0",
-    "ssb-ebt": "5.1.4",
-    "ssb-friends": "2.4.0",
-    "ssb-keys": "7.0.14",
-    "ssb-links": "3.0.3",
-    "ssb-marked": "^0.7.4",
-    "ssb-msgs": "~5.2.0",
-    "ssb-query": "^2.0.1",
-    "ssb-ref": "^2.9.1",
-    "ssb-sort": "^1.1.0",
-    "ssb-ws": "2.1.0",
-    "stream-to-pull-stream": "^1.7.2",
-    "streamview-links": "^2.1.1",
-    "ts-multipick": "1.0.0",
-    "typescript": "2.3.2"
+    "sodium-native": "^2.3.0",
+    "ssb-autoname": "^1.2.1",
+    "ssb-blobs": "^1.1.13",
+    "ssb-config": "^3.2.5",
+    "ssb-ebt": "^5.5.5",
+    "ssb-friends": "^4.0.0",
+    "ssb-keys": "^7.1.5",
+    "ssb-links": "^3.0.4",
+    "ssb-query": "^2.3.0",
+    "ssb-ws": "^6.0.0"
   },
-  "devDependencies": {
-    "html-looks-like": "^1.0.1"
-  },
+  "devDependencies": {},
   "scripts": {
-    "compile": "node_modules/typescript/bin/tsc",
-    "start": "node src/index --host $HOST",
-    "test": "npm run lint && npm run mocha"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "8.10.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FoxDotBuild/WeatherStation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FoxDotBuild/WeatherStation/issues"
+  },
+  "homepage": "https://github.com/FoxDotBuild/WeatherStation#readme"
 }

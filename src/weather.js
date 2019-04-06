@@ -1,4 +1,13 @@
-var dhtSensorLib = require("node-dht-sensor");
+if (!process.env.SKIP_DHT_STUFF) {
+  var dhtSensorLib = require("node-dht-sensor");
+} else {
+  var dhtSensorLib = {
+    read(sensorType, sensorPin, handleReading) {
+      console.warn("THIS IS NOT A REAL RPI DEVICE; SKIPPING TEMP READING");
+      handleReading(null, -1, -1);
+    }
+  }
+}
 var heatIndexLib = require("heat-index");
 
 const sensorType = 22;
@@ -16,9 +25,8 @@ function weather() {
     function handleReading(err, temperature, humidity) {
       if (err)
         reject(err);
-      else
-      {
-        var heatIndex = heatIndexLib.heatIndex({temperature, humidity});
+      else {
+        var heatIndex = heatIndexLib.heatIndex({ temperature, humidity });
         var heatIndexF = heatIndexLib.toFahrenheit(heatIndex);
 
         resolve([humidity, heatIndexF]);
