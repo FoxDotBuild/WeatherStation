@@ -13,11 +13,28 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
  * Tiny RTC DS1307
  * DHT22 Humidity and Temperature Sensor
 
-## Relevant RTC Setup
+## Hardware Setup
 
- * sudo modprobe rtc-ds1307 //Load RTC Module
- * echo ds1307 0x68 | sudo tee /sys/class/i2c-adapter/i2c-1/new_device
- * sudo hwclock -r //Read the clock
+Install Node: TODO
+Setup GPIO Library: https://www.techworked.com/install-bcm2835-library-in-raspberry-pi/
+
+Setup realtime clock:
+
+```
+# Load RTC Module
+sudo modprobe rtc-ds1307
+
+# Config i2c bus to use RTC
+echo ds1307 0x68 | sudo tee /sys/class/i2c-adapter/i2c-1/new_device
+
+# Read the clock
+sudo hwclock -r
+
+# Install GPIO library
+
+```
+
+Setup WiFi access point: TODO
 
 ## See Also
 
