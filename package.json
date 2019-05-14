@@ -6,6 +6,7 @@
   "dependencies": {
     "debug": "^4.1.1",
     "heat-index": "^0.0.3",
+    "node-dht-sensor": "^0.3.0",
     "scuttlebot": "^13.2.2",
     "serialport": "^7.1.4",
     "sodium-native": "^2.3.0",
