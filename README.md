@@ -19,7 +19,7 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
 ## Project TODOs
 
  - [ ] Setup hostapd/dnsmasq as an Open WiFi AP. [Maybe just use this one](https://github.com/billz/raspap-webgui).
- - [ ] Setup autostart (`systemd`, probably) for boot up.
+ - [ ] Setup autostart (`systemd`, [probably](https://www.raspberrypi.org/documentation/linux/usage/systemd.md) for boot up.
 
 ## Hardware Setup
 
