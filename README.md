@@ -18,8 +18,12 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
 
 ## Project TODOs
 
- - [ ] Setup hostapd/dnsmasq as an Open WiFi AP. [Maybe just use this one](https://github.com/billz/raspap-webgui).
- - [ ] Setup autostart (`systemd`, [probably](https://www.raspberrypi.org/documentation/linux/usage/systemd.md)) for boot up.
+ - [X] Install latest Raspian
+ - [X] Setup an Open WiFi AP. [Maybe just use this one](https://github.com/billz/raspap-webgui).
+ - [ ] Install latest node version
+ - [ ] Install latest `ssb-server` and setup systemd stuff for said `ssb-server`.
+ - [ ] Setup systemd stuff for custom weather station code.
+ - [ ] Re-write everything in `src/` to use `ssb-client` and the latest (promise-based) `node-dht-sensor`.
 
 ## Hardware Setup
 
