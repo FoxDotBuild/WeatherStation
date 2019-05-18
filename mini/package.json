@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "node-dht-sensor": "^0.3.0",
     "pull-stream": "^3.6.11",
     "ssb-backlinks": "^0.7.3",
     "ssb-client": "^4.7.5",
