@@ -1,11 +1,14 @@
 [Unit]
 Description=The SSB Server
 After=network.target
-
+ 
 [Service]
-ExecStart=ssb-server
-WorkingDirectory=/home/rick
+ExecStart=/bin/bash -c 'export PATH="$PATH:/opt/node/bin"; ssb-server start'
+ExecStop=/bin/kill -TERM ${MAINPID}
+WorkingDirectory=/home/pi
 Restart=always
-
+User=pi
+Group=pi
+ 
 [Install]
 WantedBy=multi-user.target
