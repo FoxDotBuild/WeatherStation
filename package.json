@@ -1,38 +1,21 @@
 {
-  "name": "WeatherStation",
+  "name": "mini",
   "version": "1.0.0",
-  "description": "This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/scuttlebutt-protocol-guide/) to store sensor readings. Sensor readings are propogated via [data mule](https://en.wikipedia.org/wiki/Data_mule) rather than by a data link.",
+  "description": "",
   "main": "index.js",
-  "dependencies": {
-    "debug": "^4.1.1",
-    "heat-index": "^0.0.3",
-    "node-dht-sensor": "^0.3.0",
-    "scuttlebot": "^13.2.2",
-    "serialport": "^7.1.4",
-    "sodium-native": "^2.3.0",
-    "ssb-autoname": "^1.2.1",
-    "ssb-blobs": "^1.1.13",
-    "ssb-config": "^3.2.5",
-    "ssb-ebt": "^5.5.5",
-    "ssb-friends": "^4.0.0",
-    "ssb-keys": "^7.1.5",
-    "ssb-links": "^3.0.4",
-    "ssb-query": "^2.3.0",
-    "ssb-ws": "^6.0.0"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FoxDotBuild/WeatherStation.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/FoxDotBuild/WeatherStation/issues"
-  },
-  "homepage": "https://github.com/FoxDotBuild/WeatherStation#readme"
+  "dependencies": {
+    "node-dht-sensor": "^0.3.0",
+    "pull-stream": "^3.6.11",
+    "ssb-backlinks": "^0.7.3",
+    "ssb-client": "^4.7.5",
+    "ssb-config": "^3.3.0",
+    "ssb-gossip": "^1.0.10",
+    "ssb-replicate": "^1.3.0"
+  }
 }
