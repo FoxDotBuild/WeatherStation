@@ -7,9 +7,11 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
 
 ## Hardware Used
 
- * Raspberry Pi Zero W
+ * Raspberry Pi 3 B
  * Tiny RTC DS1307
  * DHT22 Humidity and Temperature Sensor
+ ### Wiring Diagram
+  ![schematic.png](schematic.png)
 
 ## Project TODOs
 
