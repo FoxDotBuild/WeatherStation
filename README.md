@@ -11,11 +11,6 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
  * Tiny RTC DS1307
  * DHT22 Humidity and Temperature Sensor
 
-## See Also
-
- * [SBOT API Docs](https://scuttlebot.io/) - Provides a Javascript API to SSB.
- * [Patchwork](https://github.com/ssbc/patchwork) - A non-trivial SSB app.
-
 ## Project TODOs
 
  - [X] Install latest Raspian
@@ -25,9 +20,37 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
  - [ ] Setup systemd stuff for custom weather station code.
  - [ ] Re-write everything in `src/` to use `ssb-client` and the latest (promise-based) `node-dht-sensor`.
 
-## Hardware Setup
-
- * [Install NodeJS](https://www.instructables.com/id/Install-Nodejs-and-Npm-on-Raspberry-Pi/)
+##Setup
+ ### Clone Repo Somewhere on Pi
+  ```
+  git clone https://github.com/FoxDotBuild/WeatherStation.git
+  ```
+ ### [Install NodeJS](https://www.instructables.com/id/Install-Nodejs-and-Npm-on-Raspberry-Pi/)
+  ```
+  # Download [ver 10.15.3 armV6](https://nodejs.org/en/download/releases)
+  # Extract the archive
+  sudo tar -C /opt -Jxf node-v10.15.3-linux-arm6l.tar.xz
+  
+  # Change directory to /opt/
+  cd /opt/
+  
+  # Symbolically link node
+  sudo ln -s node-v10.15.3.linux-armv6l node
+  
+  # Setup path to node
+  export PATH="$PATH:/opt/node-v10.15.3-linux-arm6l/bin"
+  # Test path
+  which node
+  ```
+ ### Install [ssb-server](https://github.com/ssbc/ssb-server)_
+  ```
+  # install ssb-server
+  sudo /opt/node-v10.15.3-linux-armv6l/bin/npm install -g ssb-server
+  
+  # Also consider installing by
+  sudo -i
+  npm install -g ssb-server
+  ```
  ### Setup Realtime clock
   ```
   # Load RTC Module
@@ -39,6 +62,21 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
   # Read the clock
   sudo hwclock -r
   ```
+## Starting
+ If everything installed correctly then just run
+ ```
+ ssb-server start
+ ```
+ and keep it open.
+ 
+ In a different terminal:
+ ```
+ # Run index.js in /mini/
+ node index.js
+ 
+ # alternate way
+ sudo /opt/node-v10.15.3-linux-armv61/bin/node index.js
+ ```
 ## Syncing Data
 
  * Venture off into the woods, find the weather station.
@@ -49,7 +87,11 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
  * Done! The weather report has now been "gossiped" to other peers on the network.
 
 ---
+## See Also
 
+ * [SBOT API Docs](https://scuttlebot.io/) - Provides a Javascript API to SSB.
+ * [Patchwork](https://github.com/ssbc/patchwork) - A non-trivial SSB app.
+ 
 ## Attribution
 
 The code is a heavily gutted version of [easy-ssb-pub](https://github.com/staltz/easy-ssb-pub).
