@@ -28,8 +28,17 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
 ## Hardware Setup
 
  * [Install NodeJS](https://www.instructables.com/id/Install-Nodejs-and-Npm-on-Raspberry-Pi/)
- * Setup Realtime clock (see appendix)
+ ### Setup Realtime clock
+  ```
+  # Load RTC Module
+  sudo modprobe rtc-ds1307
 
+  # Config i2c bus to use RTC
+  echo ds1307 0x68 | sudo tee /sys/class/i2c-adapter/i2c-1/new_device
+
+  # Read the clock
+  sudo hwclock -r
+  ```
 ## Syncing Data
 
  * Venture off into the woods, find the weather station.
@@ -40,19 +49,6 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
  * Done! The weather report has now been "gossiped" to other peers on the network.
 
 ---
-
-# Appendix: Realtime Clock Setup
-
-```
-# Load RTC Module
-sudo modprobe rtc-ds1307
-
-# Config i2c bus to use RTC
-echo ds1307 0x68 | sudo tee /sys/class/i2c-adapter/i2c-1/new_device
-
-# Read the clock
-sudo hwclock -r
-```
 
 ## Attribution
 
