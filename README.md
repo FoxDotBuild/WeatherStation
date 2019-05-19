@@ -3,7 +3,7 @@ This weather station gets a reading of both the temperature and humidity and pub
 
 [Secure Scuttlebutt](https://ssbc.github.io/scuttlebutt-protocol-guide/) is the Kappa Architecture implementation used to store sensor readings. Sensor readings are propogated via [data mule](https://en.wikipedia.org/wiki/Data_mule) rather than by a data link.
 
-This project shows how a Kappa Architecture when applied to IoT can make for a realiable and convenient way to transport data securely when traditional networking infrastructure is scarce.
+When applied to [IoT](https://en.wikipedia.org/wiki/Internet_of_things) SSB can make for a realiable and convenient way to transport data securely when traditional networking infrastructure is scarce.
 
 ![weather_report.png](weather_report.png)
 ![enclosure.jpg](enclosure.jpg)
