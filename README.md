@@ -65,6 +65,40 @@ This project shows how SSB when applied to IoT can make for a realiable and conv
   # Read the clock
   sudo hwclock -r
   ```
+  ### Install [raspAP](https://github.com/billz/raspap-webgui)
+  ## Prerequisites
+  Start with a clean install of the [latest release of Raspbian](https://www.raspberrypi.org/downloads/raspbian/) (currently Stretch). Raspbian Stretch Lite is recommended.
+
+  1. Update Raspbian, including the kernel and firmware, followed by a reboot:
+  ```
+  sudo apt-get update
+  sudo apt-get dist-upgrade
+  sudo reboot
+  ```
+  2. Set the WiFi country in raspi-config's **Localisation Options**: `sudo raspi-config`
+
+  3. If you have an older Raspberry Pi without an onboard WiFi chipset, the [**Edimax Wireless 802.11b/g/n nano USB adapter**](https://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/global/wireless_adapters_n150/ew-7811un) is an excellent option – it's small, cheap and has good driver support.
+
+  With the prerequisites done, you can proceed with either the Quick installer or Manual installation steps below.
+
+  ## Quick installer
+  Install RaspAP from your RaspberryPi's shell prompt:
+  ```sh
+  wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
+  ```
+  The installer will complete the steps in the manual installation (below) for you.
+
+  After the reboot at the end of the installation the wireless network will be
+  configured as an access point as follows:
+  * IP address: 10.3.141.1
+    * Username: admin
+    * Password: secret
+  * DHCP range: 10.3.141.50 to 10.3.141.255
+  * SSID: `raspi-webgui`
+  * Password: ChangeMe
+
+  **Note:** As the name suggests, the Quick Installer is a great way to quickly setup a new AP. However, it does not automagically detect the unique configuration of your RPi. Best results are obtained by connecting an RPi to ethernet (`eth0`) or as a WiFi client, also known as managed mode, with `wlan0`. For the latter, refer to [this FAQ](https://github.com/billz/raspap-webgui/wiki/FAQs#how-do-i-prepare-the-sd-card-to-connect-to-wifi-in-headless-mode). Please [read this](https://github.com/billz/raspap-webgui/wiki/Reporting-issues) before reporting an issue.
+  
 ## Starting
  If everything installed correctly then just run
  ```
