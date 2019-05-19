@@ -1,0 +1,11 @@
+[Unit]
+Description=The SSB Server
+After=network.target
+
+[Service]
+ExecStart=ssb-server
+WorkingDirectory=/home/rick
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

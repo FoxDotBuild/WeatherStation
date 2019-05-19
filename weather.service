@@ -1,0 +1,11 @@
+[Unit]
+Description=A weather logger on SSB
+After=network.target ssb.service
+
+[Service]
+ExecStart=node src/index.js
+WorkingDirectory=/home/rick/WeatherStation
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
