@@ -66,7 +66,7 @@ This project shows how SSB when applied to IoT can make for a realiable and conv
   sudo hwclock -r
   ```
   ### Install [raspAP](https://github.com/billz/raspap-webgui)
-  ## Prerequisites
+  #### Prerequisites
   Start with a clean install of the [latest release of Raspbian](https://www.raspberrypi.org/downloads/raspbian/) (currently Stretch). Raspbian Stretch Lite is recommended.
 
   1. Update Raspbian, including the kernel and firmware, followed by a reboot:
@@ -81,7 +81,7 @@ This project shows how SSB when applied to IoT can make for a realiable and conv
 
   With the prerequisites done, you can proceed with either the Quick installer or Manual installation steps below.
 
-  ## Quick installer
+  #### Quick installer
   Install RaspAP from your RaspberryPi's shell prompt:
   ```sh
   wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
