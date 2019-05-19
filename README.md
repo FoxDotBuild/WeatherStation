@@ -68,15 +68,25 @@ sudo /opt/node-v10.15.3-linux-armv6l/bin/npm install -g ssb-server
 
 ### Setup Realtime clock
 
+#### Remove fake-hwclock package to avoid conflicting with RTC
 ```
-# Load RTC Module
-sudo modprobe rtc-ds1307
+sudo apt purge fake-hwclock
+```
 
-# Config i2c bus to use RTC
-echo ds1307 0x68 | sudo tee /sys/class/i2c-adapter/i2c-1/new_device
+#### Setup RTC module to automatically load at bootup
+```
+sudo cp rtc-ds1307.conf /etc/modules-load.d/
+```
 
-# Read the clock
-sudo hwclock -r
+#### Have the Pi automatically create the RTC device at bootup
+You will have to edit /boot/config.txt and append this line:
+```
+dtoverlay=i2c-rtc,ds1307
+```
+
+#### Finally to have the Pi automatically load the date from RTC at bootup:
+```
+sudo cp hwclock-set /lib/udev/
 ```
 
 ### Install [raspAP](https://github.com/billz/raspap-webgui)
