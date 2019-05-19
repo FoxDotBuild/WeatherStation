@@ -32,11 +32,19 @@ function createTemperaturePost() {
 const pull = require('pull-stream')
 const Client = require('ssb-client')
 
+const createWeatherChecker =
+  (server) => () => {
+    server.publish(createTemperaturePost(), (err, msg) => {
+      if (err) throw err
+      console.dir(msg);
+      console.log("Just published a message.");
+    });
+  }
+
 Client(function (err, server) {
   if (err) throw err
-  server.publish(createTemperaturePost(), function (err, msg) {
-    if (err) throw err
-    console.dir(msg);
-    console.log("Just published a message and not doing anything else");
-  });
+  var checkWeather = createWeatherChecker(server);
+  server.publish({ type: 'post', text: 'Power re-applied' });
+  checkWeather();
+  setInterval(checkWeather, 1000 * 60 * 60 * 24);
 });
