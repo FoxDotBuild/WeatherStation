@@ -7,7 +7,7 @@ This project shows how SSB when applied to IoT can make for a realiable and conv
 ![weather_report.png](weather_report.png)
 ![enclosure.jpg](enclosure.jpg)
 
-## Hardware Used
+## Hardware
 
  * Raspberry Pi 3 B
  * Tiny RTC DS1307
@@ -24,7 +24,7 @@ This project shows how SSB when applied to IoT can make for a realiable and conv
  - [ ] Setup systemd stuff for custom weather station code.
  - [ ] Re-write everything in `src/` to use `ssb-client` and the latest (promise-based) `node-dht-sensor`.
 
-## Setup
+## Software
  ### Clone Repo Somewhere on Pi
   ```
   git clone https://github.com/FoxDotBuild/WeatherStation.git
