@@ -1,11 +1,14 @@
 [Unit]
 Description=A weather logger on SSB
 After=network.target ssb.service
-
+ 
 [Service]
-ExecStart=node src/index.js
-WorkingDirectory=/home/rick/WeatherStation
+ExecStart=/bin/bash -c 'PATH="$PATH:/opt/node/bin"; node src/index.js'
+ExecStop=/bin/kill -TERM ${MAINPID}
+WorkingDirectory=/home/pi/WeatherStation
 Restart=always
-
+User=pi
+Group=pi
+ 
 [Install]
 WantedBy=multi-user.target
