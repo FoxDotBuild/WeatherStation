@@ -6,15 +6,6 @@ This project shows how SSB when applied to IoT can make for a realiable and conv
 
 ![weather_report.png](weather_report.png)
 ![enclosure.jpg](enclosure.jpg)
-
-## Hardware
-
- * Raspberry Pi 3 B
- * Tiny RTC DS1307
- * DHT22 Humidity and Temperature Sensor
- ### Wiring Diagram
-  ![schematic.png](schematic.png)
-
 ## Project TODOs
 
  - [X] Install latest Raspian
@@ -23,7 +14,15 @@ This project shows how SSB when applied to IoT can make for a realiable and conv
  - [ ] Install latest `ssb-server` and setup systemd stuff for said `ssb-server`.
  - [ ] Setup systemd stuff for custom weather station code.
  - [ ] Re-write everything in `src/` to use `ssb-client` and the latest (promise-based) `node-dht-sensor`.
+ 
+## Hardware
 
+ * Raspberry Pi 3 B
+ * Tiny RTC DS1307
+ * DHT22 Humidity and Temperature Sensor
+ ### Wiring Diagram
+  ![schematic.png](schematic.png)
+  
 ## Software
  ### Clone Repo Somewhere on Pi
   ```
@@ -46,7 +45,7 @@ This project shows how SSB when applied to IoT can make for a realiable and conv
   # Test path
   which node
   ```
- ### Install [ssb-server](https://github.com/ssbc/ssb-server)_
+ ### Install [ssb-server](https://github.com/ssbc/ssb-server)
   ```
   # install ssb-server
   sudo /opt/node-v10.15.3-linux-armv6l/bin/npm install -g ssb-server
