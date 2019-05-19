@@ -2,6 +2,8 @@
 
 This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/scuttlebutt-protocol-guide/) to store sensor readings. Sensor readings are propogated via [data mule](https://en.wikipedia.org/wiki/Data_mule) rather than by a data link.
 
+This project shows how SSB when applied to IoT can make for a realiable and convenient way to transport data securely when traditional networking infrastructure is scarce.
+
 ![weather_report.png](weather_report.png)
 ![enclosure.jpg](enclosure.jpg)
 
@@ -22,7 +24,7 @@ This is a weather station that uses [Secure Scuttlebutt](https://ssbc.github.io/
  - [ ] Setup systemd stuff for custom weather station code.
  - [ ] Re-write everything in `src/` to use `ssb-client` and the latest (promise-based) `node-dht-sensor`.
 
-##Setup
+## Setup
  ### Clone Repo Somewhere on Pi
   ```
   git clone https://github.com/FoxDotBuild/WeatherStation.git
