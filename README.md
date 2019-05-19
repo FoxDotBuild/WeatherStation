@@ -5,8 +5,8 @@ This weather station gets a reading of both the temperature and humidity and pub
 
 When applied to [IoT](https://en.wikipedia.org/wiki/Internet_of_things) SSB can make for a reliable and convenient way to transport data securely when traditional networking infrastructure is scarce.
 <center>
-![weather_report.png](weather_report.png)
-![enclosure.jpg](enclosure.jpg)
+ ![weather_report.png](weather_report.png)
+ ![enclosure.jpg](enclosure.jpg)
 </center>
 ## Project TODOs
 
