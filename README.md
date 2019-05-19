@@ -30,7 +30,7 @@ This project shows how SSB when applied to IoT can make for a realiable and conv
   ```
  ### [Install NodeJS](https://www.instructables.com/id/Install-Nodejs-and-Npm-on-Raspberry-Pi/)
   ```
-  # Download [ver 10.15.3 armV6](https://nodejs.org/en/download/releases)
+  # Download [Node version 10.15.3 armV6] (https://nodejs.org/en/download/releases)
   # Extract the archive
   sudo tar -C /opt -Jxf node-v10.15.3-linux-arm6l.tar.xz
   
