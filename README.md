@@ -7,7 +7,7 @@ This weather station gets a reading of both the temperature and humidity and pub
 When applied to [IoT](https://en.wikipedia.org/wiki/Internet_of_things) SSB can potentially transport data securely when traditional networking infrastructure is scarce. This project is an exploration of that idea.
 
    ![weather_report.png](weather_report.png)
-   ![enclosure.jpg](enclosure.jpg)
+   ![updatedWeatherStationPic.jpg](updatedWeatherStationPic.jpg)
 
 ## Project TODOs
 
@@ -20,10 +20,14 @@ When applied to [IoT](https://en.wikipedia.org/wiki/Internet_of_things) SSB can 
 
 ## Hardware
 
+  ![hardware.jpg](hardware.jpg)
  * Raspberry Pi 3 B
  * DHT22 Humidity and Temperature Sensor
  * Tiny RTC DS1307
-   Please note the two resistors on the DS1307 were removed
+ 
+  Please notice that two resistors on the DS1307 board were removed
+  ![resistorRemoved.jpg](resistorRemoved.jpg)
+  
 ### Wiring Diagram
 
 ![schematic.png](schematic.png)
