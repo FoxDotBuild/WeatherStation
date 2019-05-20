@@ -21,9 +21,9 @@ When applied to [IoT](https://en.wikipedia.org/wiki/Internet_of_things) SSB can 
 ## Hardware
 
  * Raspberry Pi 3 B
- * Tiny RTC DS1307
  * DHT22 Humidity and Temperature Sensor
-
+ * Tiny RTC DS1307
+   Please note the two resistors on the DS1307 were removed
 ### Wiring Diagram
 
 ![schematic.png](schematic.png)
