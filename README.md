@@ -1,13 +1,14 @@
 # Weather Station
 
+   ![weather_report.png](weather_report.png)
+
 This weather station gets a reading of both the temperature and humidity and publishes it to a database that has a [Kappa Architecture](http://milinda.pathirage.org/kappa-architecture.com/).
 
 [Secure Scuttlebutt](https://ssbc.github.io/scuttlebutt-protocol-guide/) is a Kappa Architecture implementation used to store sensor readings. Sensor readings are propogated via [data mule](https://en.wikipedia.org/wiki/Data_mule) rather than by a data link.
 
 When applied to [IoT](https://en.wikipedia.org/wiki/Internet_of_things) SSB can potentially transport data securely when traditional networking infrastructure is scarce. This project is an exploration of that idea.
 
-   ![weather_report.png](weather_report.png)
-   ![enclosure.jpg](enclosure.jpg)
+   ![updatedWeatherStationPic.jpg](updatedWeatherStationPic.jpg)
 
 ## Project TODOs
 
@@ -20,10 +21,14 @@ When applied to [IoT](https://en.wikipedia.org/wiki/Internet_of_things) SSB can 
 
 ## Hardware
 
+  ![hardware.jpg](hardware.jpg)
  * Raspberry Pi 3 B
- * Tiny RTC DS1307
  * DHT22 Humidity and Temperature Sensor
-
+ * Tiny RTC DS1307
+ 
+  Please notice that two resistors on the DS1307 board were removed
+  ![resistorRemoved.jpg](resistorRemoved.jpg)
+  
 ### Wiring Diagram
 
 ![schematic.png](schematic.png)
